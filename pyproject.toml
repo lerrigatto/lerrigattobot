@@ -1,3 +1,25 @@
+[tool.poetry]
+name = "lerrigattobot"
+version = "0.1.0"
+description = "An awesome streaming bot"
+authors = ["Enrico <lerrigatto> La Cava <me@lerrigatto.com>"]
+license = "GPL-3.0-or-later"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+twitchio = "^1.2.3"
+python-dotenv = "^0.17.0"
+
+[tool.poetry.dev-dependencies]
+pre-commit = "^2.12.0"
+
+[tool.poetry.scripts]
+lerrigattobot = "lerrigattobot.bot:start"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
 [tool.black]
 target-version = ['py37', 'py38']
 include = '\.pyi?$'

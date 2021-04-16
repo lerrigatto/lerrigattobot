@@ -17,8 +17,6 @@ class Bot(commands.Bot):
     async def event_ready(self):
         "Called once when the bot goes online."
         print(f"{os.environ['BOT_NICK']} is online")
-        ws = bot._ws  # this is only needed to send messages within event_ready
-        # await ws.send_privmsg(os.getenv('CHANNEL'), f"/me is looking for food")
 
     async def event_message(self, ctx):
         "Runs every time a message is sent in chat."
@@ -33,10 +31,13 @@ class Bot(commands.Bot):
         await ctx.send(f"Hello {ctx.author.name}!")
 
 
-if __name__ == "__main__":
+def start():
     load_dotenv()
-
     channelz = [i.strip() for i in os.getenv("CHANNELS").split(",")]
     print(f"Connecting to {channelz}")
     bot = Bot()
     bot.run()
+
+
+if __name__ == "__main__":
+    start()

@@ -31,7 +31,7 @@ class Bot(commands.Bot):
         await ctx.send(f"Hello {ctx.author.name}!")
 
 
-def start():
+def main():
     load_dotenv()
     channelz = [i.strip() for i in os.getenv("CHANNELS").split(",")]
     print(f"Connecting to {channelz}")
@@ -40,4 +40,4 @@ def start():
 
 
 if __name__ == "__main__":
-    start()
+    main()
